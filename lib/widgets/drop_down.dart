@@ -5,10 +5,12 @@ import 'package:menu_button/menu_button.dart';
 class CustomDropDown extends StatefulWidget {
   String? selectedItem;
   final List<String> item;
+  late Function(String) onChanged;
 
   CustomDropDown({
     Key? key,
     required this.selectedItem,
+    required this.onChanged,
     this.item: const [
       "MALE",
       "FEMALE",
@@ -65,6 +67,8 @@ class _CustomDropDownState extends State<CustomDropDown> {
           widget.selectedItem = value;
         });
         // Action when new item is selected
+
+        widget.onChanged(value);
       },
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey[300]!),

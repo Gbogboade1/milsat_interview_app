@@ -37,6 +37,9 @@ class FormInput extends ConsumerWidget {
               verticalSpace(),
               CustomDropDown(
                 selectedItem: selectGender,
+                onChanged: (String v) {
+                  selectGender = v;
+                },
               ),
               verticalSpace(),
               inputField(
